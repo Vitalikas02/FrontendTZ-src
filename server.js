@@ -13,7 +13,7 @@ app.get('/proxy', async (req, res) => {
     const response = await axios.get(url);
     const contentType = response.headers['content-type'];
 
-    let title = 'Заголовок не найден';
+    let title = 'Заголовок не найден ';
     if (contentType.includes('application/json')) {
       const data = response.data;
       title = data.title || title;
