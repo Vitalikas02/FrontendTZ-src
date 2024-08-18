@@ -32,4 +32,4 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'deploy'
-          git push -f https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/USERNAME/REPOSITORY.git master:gh-pages
+          git push -f https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/Vitalikas02/FrontendTZ-src.git master:gh-pages
