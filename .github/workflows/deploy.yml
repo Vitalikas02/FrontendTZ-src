@@ -28,8 +28,12 @@ jobs:
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'deploy'
-          git push -f https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/Vitalikas02/FrontendTZ-src.git master:gh-pages
+          git push -f git@github.com:Vitalikas02/FrontendTZ-src.git master:gh-pages
