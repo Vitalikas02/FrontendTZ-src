@@ -23,7 +23,7 @@ app.get('/proxy', async (req, res) => {
       title = titleMatch ? titleMatch[1] : title;
     }
 
-    console.log('Title:', title); // Отладочная информация
+    console.log('Title:', title);
     res.json({ title });
   } catch (error) {
     console.error('Ошибка при получении данных:', error);
